@@ -1,3 +1,7 @@
 h1 {
   color: plum;
 }
+
+.col-3 {
+  text-align: right;
+}

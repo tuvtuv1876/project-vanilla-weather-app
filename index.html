@@ -16,7 +16,55 @@
   <body>
     <div class="container">
       <h1><img src="media/welcome.gif" /> to the Vanilla Weather App</h1>
+      <br />
+      <form>
+        <div class="row g-4">
+          <div class="col-3">
+            <input
+              type="text"
+              class="form-control"
+              id="inputText"
+              placeholder="Enter a city here"
+            />
+          </div>
+          <div class="col-1">
+            <button type="search" class="btn btn-primary mb-3">Search</button>
+          </div>
+        </div>
+      </form>
+      <form>
+        <div class="row g-5">
+          <div class="col-auto">
+            <img src="media/sunny.png" />
+            <h2>21°C | °F</h2>
+          </div>
+          <div class="col-auto">
+            <ul>
+              <li>Precipitation: 2%</li>
+              <li>Humidity: 60%</li>
+              <li>Wind: 5km/h</li>
+            </ul>
+          </div>
+          <div class="col-auto">
+            <h3>Winterthur</h3>
+            <div class="time">Friday, 20:00</div>
+            <div class="weather-description">Cloudless</div>
+          </div>
+        </div>
+      </form>
+      <br />
+      <small>
+        <a href="https://github.com/tuvtuv1876/project-vanilla-weather-app" target="_blank>
+          open source code
+        </a>
+          by tu vy ho
+        <a href="https://inspiring-fermat-b63969.netlify.app" target="_blank>
+        hosted by netlify
+        </a>
+    
+      </small>
     </div>
+
     <script src="src/app.js"></script>
   </body>
 </html>
