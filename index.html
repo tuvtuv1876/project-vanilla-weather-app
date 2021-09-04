@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,11 +22,11 @@
   <body>
     <div class="container">
       <div class="app-frame">
-        <h1><img src="media/welcome.gif" /> to the Vanilla Weather App</h1>
+        <h1><img src="media/welcome.gif" /></h1>
         <br />
         <form>
           <div class="row g-6">
-            <div class="col-6">
+            <div class="col-6 input-text">
               <input
                 type="text"
                 class="form-control"
@@ -35,18 +41,20 @@
         </form>
         <form>
           <div class="row g-5">
-            <div class="col-auto">
+            <div class="col-auto overview-1">
               <img src="media/sunny.png" />
-              <h2>21°C | °F</h2>
+              <h2>
+                21<span class="degrees">°C | <a href="#">°F</a> </span>
+              </h2>
             </div>
-            <div class="col-auto">
+            <div class="col-auto overview-2">
               <ul>
                 <li>Precipitation: 2%</li>
                 <li>Humidity: 60%</li>
                 <li>Wind: 5km/h</li>
               </ul>
             </div>
-            <div class="col-auto">
+            <div class="col-5 overview-3">
               <h3>Winterthur</h3>
               <div class="time">Friday, 20:00</div>
               <div class="weather-description">Cloudless</div>
@@ -55,8 +63,7 @@
         </form>
       </div>
 
-      <br />
-      <small>
+      <small class="open-source">
         <a
           href="https://github.com/tuvtuv1876/project-vanilla-weather-app"
           target="_blank"
