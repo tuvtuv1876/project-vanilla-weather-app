@@ -5,7 +5,8 @@ function showTemperature(response) {
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
 
-  let date = new Date(response.data.dt * 1000);
+  let date = new Date(1631386422 * 1000);
+  console.log(date);
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -26,6 +27,7 @@ function showTemperature(response) {
   ];
   let weekday = days[day];
   let time = document.querySelector(".time");
+  let icon = document.querySelector("#icon");
 
   keyTemperature.innerHTML = Math.round(response.data.main.temp);
   city.innerHTML = response.data.name;
@@ -33,9 +35,13 @@ function showTemperature(response) {
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   wind.innerHTML = `Wind: ${response.data.main.humidity} km/h`;
   time.innerHTML = `${weekday}, ${hours}:${minutes}`;
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
-let cityElement = "Zurich";
+let cityElement = "sydney";
 let apiKey = "b90f000267947bf1f6e5a78a0ca5e027";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityElement}&appid=${apiKey}&units=metric`;
 console.log(apiUrl);
