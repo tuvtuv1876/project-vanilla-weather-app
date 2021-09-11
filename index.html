@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <meta name="viewport" content="width= initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,6 +16,7 @@
       integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/look.css" />
     <title>Vanilla Weather App</title>
   </head>
@@ -43,21 +44,21 @@
           <div class="row g-5">
             <div class="col-auto overview-1">
               <img src="media/sunny.png" />
-              <h2>
+              <div id="key-temperature">
                 21<span class="degrees">°C | <a href="#">°F</a> </span>
-              </h2>
+              </div>
             </div>
             <div class="col-auto overview-2">
               <ul>
-                <li>Precipitation: 2%</li>
-                <li>Humidity: 60%</li>
-                <li>Wind: 5km/h</li>
+                <li id="precipitation">Precipitation: 2%</li>
+                <li id="humidity">Humidity: 60%</li>
+                <li id="wind">Wind: 5km/h</li>
               </ul>
             </div>
             <div class="col-5 overview-3">
               <h3>Winterthur</h3>
               <div class="time">Friday, 20:00</div>
-              <div class="weather-description">Cloudless</div>
+              <div class="weather-description" id="description">Cloudless</div>
             </div>
           </div>
         </form>

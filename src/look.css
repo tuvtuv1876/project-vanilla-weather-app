@@ -6,16 +6,6 @@ h1 img {
   width: 50px;
 }
 
-h2 {
-  color: #202124;
-  display: inline-block;
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 60px;
-  vertical-align: top;
-  font-family: "Poppins", sans-serif;
-}
-
 h3 {
   color: #202124;
   font-size: 22px;
@@ -33,6 +23,16 @@ ul {
   color: #70757a;
   font-size: 12px;
   line-height: 16px;
+}
+
+#key-temperature {
+  color: #202124;
+  display: inline-block;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 60px;
+  vertical-align: top;
+  font-family: "Poppins", sans-serif;
 }
 
 .app-frame {
@@ -70,7 +70,8 @@ ul {
 
 .overview-3 {
   text-align: right;
-  margin-left: 0;
+  margin-right: 0;
+  padding-right: 0;
 }
 
 .time {
@@ -83,6 +84,10 @@ ul {
   color: #70757a;
   font-size: 16px;
   line-height: 20px;
+}
+
+.weather-description::first-letter {
+  text-transform: capitalize;
 }
 
 .open-source {
