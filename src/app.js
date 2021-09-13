@@ -40,8 +40,19 @@ function showTemperature(response) {
   );
 }
 
-let cityElement = "zurich";
-let apiKey = "b90f000267947bf1f6e5a78a0ca5e027";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityElement}&appid=${apiKey}&units=metric`;
-console.log(apiUrl);
-axios.get(apiUrl).then(showTemperature);
+function apiSearch(city) {
+  let apiKey = "b90f000267947bf1f6e5a78a0ca5e027";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityElement = document.querySelector("#input-text");
+  apiSearch(cityElement.value);
+}
+
+apiSearch("Winterthur");
+
+let form = document.querySelector("#form-input");
+form.addEventListener("submit", handleSubmit);
