@@ -119,3 +119,24 @@ ul {
 #celcius-link {
   text-decoration: none;
 }
+
+.forecast {
+  text-align: center;
+}
+
+.forecast-day {
+  font-size: 13px;
+  color: #202124;
+}
+
+.forecast-temps {
+  font-size: 13px;
+}
+
+.forecast-temp-max {
+  color: #202124;
+}
+
+.forecast-temp-min {
+  color: #70757a;
+}
