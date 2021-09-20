@@ -50,7 +50,7 @@ ul {
 
 #degrees {
   position: relative;
-  top: -35px;
+  top: -30px;
   color: #202124;
   display: inline;
   font-size: 16px;
@@ -59,6 +59,8 @@ ul {
 
 .overview-1 {
   padding: 0;
+  position: relative;
+  left: 10px;
 }
 
 .overview-2 {
@@ -100,7 +102,15 @@ ul {
 }
 
 #icon {
-  width: 50%;
+  width: 40%;
   position: relative;
-  top: -20px;
+  top: -22px;
+}
+
+#fahrenheit-link {
+  text-decoration: none;
+}
+
+#celcius-link {
+  text-decoration: none;
 }
