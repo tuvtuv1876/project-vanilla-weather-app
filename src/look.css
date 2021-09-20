@@ -101,6 +101,11 @@ ul {
   font-size: 12px;
 }
 
+.overview-1 .active {
+  color: #667b91;
+  cursor: default;
+}
+
 #icon {
   width: 40%;
   position: relative;
