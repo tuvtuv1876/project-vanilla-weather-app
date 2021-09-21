@@ -42,6 +42,36 @@ function showTemperature(response) {
   );
 }
 
+function showForecast() {
+  let forecastSection = document.querySelector("#forecast");
+
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let forecastHTML = `<div class="row forecast">`;
+
+  days.forEach(function forecastDay(day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="forecast-day">${day}</div>
+          <div class="forecast-img">
+            <img
+              src="http://openweathermap.org/img/wn/04n@2x.png"
+              alt=""
+              width="48px"
+              />
+          </div>
+          <div class="forecast-temps">
+              <span class="forecast-temp-max">16°</span>
+              <span class="forecast-temp-min">9°</span>
+          </div>
+      </div>
+            `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastSection.innerHTML = forecastHTML;
+}
+
 function apiSearch(city) {
   let apiKey = "b90f000267947bf1f6e5a78a0ca5e027";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -83,3 +113,4 @@ let celcius = document.querySelector("#celcius-link");
 celcius.addEventListener("click", showCelcius);
 
 apiSearch("Winterthur");
+showForecast();
