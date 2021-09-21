@@ -1,3 +1,12 @@
+function forecastApiSearch(coordinates) {
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let apiKey = "b90f000267947bf1f6e5a78a0ca5e027";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+  console.log(apiUrl);
+}
+
 function showTemperature(response) {
   let keyTemperature = document.querySelector("#key-temperature");
   let city = document.querySelector("h3");
@@ -40,6 +49,8 @@ function showTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  forecastApiSearch(response.data.coord);
 }
 
 function showForecast() {
