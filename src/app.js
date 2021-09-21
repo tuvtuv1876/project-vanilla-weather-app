@@ -4,7 +4,6 @@ function forecastApiSearch(coordinates) {
   let apiKey = "b90f000267947bf1f6e5a78a0ca5e027";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showForecast);
-  console.log(apiUrl);
 }
 
 function showTemperature(response) {
@@ -53,33 +52,50 @@ function showTemperature(response) {
   forecastApiSearch(response.data.coord);
 }
 
-function showForecast() {
+function formatDay(timestamp) {
+  let formattedDay = new Date(timestamp * 1000);
+  let day = formattedDay.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function showForecast(response) {
+  let wholeForecast = response.data.daily;
   let forecastSection = document.querySelector("#forecast");
 
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let days = [, "Sun"];
   let forecastHTML = `<div class="row forecast">`;
 
-  days.forEach(function forecastDay(day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  wholeForecast.forEach(function forecastDay(forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col-2">
-        <div class="forecast-day">${day}</div>
+        <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
           <div class="forecast-img">
             <img
-              src="http://openweathermap.org/img/wn/04n@2x.png"
+              src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png"
               alt=""
               width="48px"
               />
           </div>
           <div class="forecast-temps">
-              <span class="forecast-temp-max">16°</span>
-              <span class="forecast-temp-min">9°</span>
+              <span class="forecast-temp-max">${Math.round(
+                forecastDay.temp.max
+              )}°</span>
+              <span class="forecast-temp-min">${Math.round(
+                forecastDay.temp.min
+              )}°</span>
           </div>
       </div>
             `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
+
   forecastSection.innerHTML = forecastHTML;
 }
 
@@ -124,4 +140,3 @@ let celcius = document.querySelector("#celcius-link");
 celcius.addEventListener("click", showCelcius);
 
 apiSearch("Winterthur");
-showForecast();
